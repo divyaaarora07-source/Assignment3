@@ -1,0 +1,80 @@
+using System;
+
+class StudentUtility
+{
+    // Method to calculate percentage
+    public static double CalculatePercentage(double obtainedMarks, double totalMarks)
+    {
+        return (obtainedMarks / totalMarks) * 100;
+    }
+
+    // Method to calculate grade
+    public static string CalculateGrade(double percentage)
+    {
+        if (percentage >= 91)
+            return "O";
+        else if (percentage >= 81)
+            return "A+";
+        else if (percentage >= 71)
+            return "A";
+        else if (percentage >= 61)
+            return "B+";
+        else if (percentage >= 51)
+            return "B";
+        else
+            return "Fail";
+    }
+
+    // Method to calculate attendance percentage
+    public static double CalculateAttendance(double presentDays, double totalDays)
+    {
+        return (presentDays / totalDays) * 100;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double obtainedMarks, totalMarks;
+        double presentDays, totalDays;
+
+        Console.Write("Enter Obtained Marks: ");
+        obtainedMarks = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Total Marks: ");
+        totalMarks = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Present Days: ");
+        presentDays = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Total Working Days: ");
+        totalDays = Convert.ToDouble(Console.ReadLine());
+
+        // Calling static methods without creating an object
+        if (totalMarks <= 0 || obtainedMarks < 0 ||
+            obtainedMarks > totalMarks ||
+            totalDays <= 0 || presentDays < 0 ||
+            presentDays > totalDays)
+        {
+            Console.WriteLine("Invalid Input!");
+        }
+        else
+        {
+            double percentage = StudentUtility.CalculatePercentage(
+                obtainedMarks, totalMarks);
+
+            string grade = StudentUtility.CalculateGrade(percentage);
+
+            double attendance = StudentUtility.CalculateAttendance(
+                presentDays, totalDays);
+
+            Console.WriteLine("\n----- Student Result -----");
+            Console.WriteLine("Percentage          : " + percentage + "%");
+            Console.WriteLine("Grade               : " + grade);
+            Console.WriteLine("Attendance          : " + attendance + "%");
+        }
+
+        Console.ReadLine();
+    }
+}
