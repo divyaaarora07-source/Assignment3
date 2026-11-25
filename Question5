@@ -1,0 +1,25 @@
+using System;
+
+public partial class Vehicle
+{
+    // Start vehicle
+    public void Start()
+    {
+        Console.WriteLine("Vehicle started successfully.");
+    }
+
+    // Stop vehicle
+    public void Stop()
+    {
+        Console.WriteLine("Vehicle stopped.");
+    }
+
+    // Display vehicle details
+    public void DisplayDetails()
+    {
+        Console.WriteLine("\n--- Vehicle Details ---");
+        Console.WriteLine("Brand: " + Brand);
+        Console.WriteLine("Model: " + Model);
+        Console.WriteLine("Year: " + Year);
+    }
+}
