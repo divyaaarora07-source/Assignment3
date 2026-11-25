@@ -1,0 +1,52 @@
+using System;
+
+// Sealed class
+sealed class EmployeePayroll
+{
+    double basicSalary;
+    double taxRate;
+
+    // Constructor
+    public EmployeePayroll(double salary, double tax)
+    {
+        basicSalary = salary;
+        taxRate = tax;
+    }
+
+    // Calculate salary
+    public double CalculateSalary()
+    {
+        return basicSalary;
+    }
+
+    // Calculate tax
+    public double CalculateTax()
+    {
+        return basicSalary * taxRate / 100;
+    }
+
+    // Calculate net salary
+    public double CalculateNetSalary()
+    {
+        return CalculateSalary() - CalculateTax();
+    }
+
+    // Display payroll details
+    public void DisplayDetails()
+    {
+        Console.WriteLine("Basic Salary: " + CalculateSalary());
+        Console.WriteLine("Tax Amount: " + CalculateTax());
+        Console.WriteLine("Net Salary: " + CalculateNetSalary());
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        EmployeePayroll emp = new EmployeePayroll(50000, 10);
+
+        Console.WriteLine("--- Employee Payroll Details ---");
+        emp.DisplayDetails();
+    }
+}
