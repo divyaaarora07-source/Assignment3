@@ -1,0 +1,40 @@
+using System;
+
+// Creating a Student record
+public record Student(
+    int RollNumber,
+    string Name,
+    string Course,
+    int Semester
+);
+
+class Program
+{
+    static void Main()
+    {
+        // Creating two students with identical data
+        Student student1 = new Student(101, "Priyanshi", "MCA", 2);
+
+        Student student2 = new Student(101, "Priyanshi", "MCA", 2);
+
+        // Display student details
+        Console.WriteLine("--- Student 1 Details ---");
+        Console.WriteLine(student1);
+
+        Console.WriteLine("\n--- Student 2 Details ---");
+        Console.WriteLine(student2);
+
+        // Comparing students
+        if (student1 == student2)
+        {
+            Console.WriteLine("\nBoth students are equal.");
+        }
+        else
+        {
+            Console.WriteLine("\nBoth students are not equal.");
+        }
+
+        // Using Equals() method
+        Console.WriteLine("Using Equals(): " + student1.Equals(student2));
+    }
+}
